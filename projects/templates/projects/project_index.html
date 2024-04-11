@@ -1,0 +1,20 @@
+<!-- projects/templates/projects/project_index.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+  
+  <!-- Photo grid -->
+  {% for project in projects %}
+  <div class="w3-row">
+    
+    <div class="w3-quarter">
+    	{% if project.image %}
+	<a href="{% url 'project_detail' project.pk %}"><img src="{{ project.image.url }}" style="width:100%" class="w3-hover-opacity"></a>
+    	{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}
